@@ -1,0 +1,11 @@
+Ayush - Placeholder CV
+
+Replace this file with your actual CV/PDF later.
+
+Suggested sections:
+- Summary
+- Skills
+- Experience
+- Projects
+- Education
+- Certifications

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Explore data analysis learning blogs on Python, SQL, Power BI, EDA, and analytics career growth."
+  >
+  <title>Ayush Rajput | Data Analysis Blogs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkqcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="blog-page">
+  <div class="page-backdrop" aria-hidden="true">
+    <span class="backdrop-orb orb-left"></span>
+    <span class="backdrop-orb orb-right"></span>
+    <span class="backdrop-grid"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ayush Rajput portfolio home">
+        <span class="brand-mark">
+          <img src="3.png" alt="Ayush Rajput profile placeholder">
+        </span>
+        <span class="brand-copy">
+          <strong>Ayush Rajput</strong>
+          <small>Data Analyst</small>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link is-current" href="#top">Blogs</a>
+        <a class="nav-link" href="index.html#projects">Projects</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+        <div class="nav-actions">
+          <button class="ghost-btn" id="theme-toggle" type="button" aria-label="Switch color theme">
+            <i class="fa-solid fa-moon"></i>
+            <span data-theme-label>Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero section" id="top">
+      <div class="container blog-hero-grid">
+        <div class="reveal">
+          <p class="section-kicker">Learning & Insights</p>
+          <h1 class="blog-title">Data Analysis Blogs</h1>
+          <p class="blog-subtitle">Practical learning notes on Python, SQL, dashboards, EDA, and analyst growth.</p>
+          <p class="blog-description">
+            A curated reading space for beginners and growing analysts who want practical explanations, cleaner workflows,
+            and better project ideas. These posts are designed to make core analytics concepts easier to apply in real work.
+          </p>
+        </div>
+
+        <aside class="blog-highlight-card reveal">
+          <p class="section-kicker">What You’ll Find</p>
+          <h2>Actionable guidance for learning, building, and presenting analysis clearly</h2>
+          <ul class="blog-highlight-list">
+            <li>Beginner-friendly notes on Python, SQL, and NumPy basics</li>
+            <li>Business-focused EDA and dashboard thinking for real datasets</li>
+            <li>Project ideas to strengthen your portfolio and interview readiness</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="blog-toolbar-section section">
+      <div class="container">
+        <div class="blog-toolbar reveal">
+          <label class="blog-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="search"
+              placeholder="Search blogs by title or keyword"
+              aria-label="Search blogs"
+              data-blog-search
+            >
+          </label>
+
+          <div class="blog-filter-group" role="tablist" aria-label="Blog categories">
+            <button class="blog-filter-btn is-active" type="button" data-blog-filter="all">All</button>
+            <button class="blog-filter-btn" type="button" data-blog-filter="python">Python</button>
+            <button class="blog-filter-btn" type="button" data-blog-filter="sql">SQL</button>
+            <button class="blog-filter-btn" type="button" data-blog-filter="power-bi">Power BI</button>
+            <button class="blog-filter-btn" type="button" data-blog-filter="eda">EDA</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-feed section">
+      <div class="container">
+        <div class="blog-grid">
+          <article class="blog-card reveal" data-blog-card data-blog-category="eda">
+            <img src="assets/blog-ai-placeholder.svg" alt="Introduction to data analysis placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">EDA</span>
+              <h3>Introduction to Data Analysis</h3>
+              <p>Understand how analysts move from raw data to questions, insights, and decisions with a clear workflow.</p>
+              <div class="blog-more">
+                <p>This guide breaks down the analysis lifecycle, from understanding business context to visualizing findings in a way stakeholders can trust.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="python">
+            <img src="assets/blog-python-placeholder.svg" alt="Python for data analysis placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Python</span>
+              <h3>Python for Data Analysis (Pandas Guide)</h3>
+              <p>Learn how Pandas helps you clean, transform, group, and explore structured datasets quickly.</p>
+              <div class="blog-more">
+                <p>It covers dataframes, filtering, missing values, aggregation, and the habits that make notebook-based analysis more organized and reusable.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="sql">
+            <img src="assets/blog-web-placeholder.svg" alt="SQL for beginners placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">SQL</span>
+              <h3>SQL for Beginners</h3>
+              <p>Build a strong SQL foundation with practical queries for filtering, joins, grouping, and reporting.</p>
+              <div class="blog-more">
+                <p>The article focuses on business-ready query thinking so you can answer stakeholder questions instead of memorizing syntax in isolation.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="eda">
+            <img src="assets/blog-career-placeholder.svg" alt="Exploratory data analysis placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">EDA</span>
+              <h3>Exploratory Data Analysis Explained</h3>
+              <p>See how analysts use summary statistics and charts to find trends, anomalies, and important patterns.</p>
+              <div class="blog-more">
+                <p>This piece explains how to move from first-look exploration to insight generation while avoiding misleading conclusions from noisy data.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="power-bi">
+            <img src="assets/project-sales.svg" alt="Power BI dashboard tutorial placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Power BI</span>
+              <h3>Power BI Dashboard Tutorial</h3>
+              <p>Design cleaner dashboards with KPI cards, slicers, trend views, and layouts decision-makers can scan fast.</p>
+              <div class="blog-more">
+                <p>It highlights dashboard planning, data modeling basics, and how to prioritize clarity over decoration when building reports.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="eda">
+            <img src="assets/project-customer.svg" alt="Top data analyst projects placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Projects</span>
+              <h3>Top Data Analyst Projects</h3>
+              <p>Explore portfolio ideas that show real analytical thinking, not just tool familiarity or copied dashboards.</p>
+              <div class="blog-more">
+                <p>From segmentation to sales reporting, the focus is on projects that clearly communicate problem, method, and outcome.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="python">
+            <img src="assets/project-operations.svg" alt="Data cleaning techniques placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Python</span>
+              <h3>Data Cleaning Techniques</h3>
+              <p>Handle duplicates, null values, formatting issues, and inconsistent categories before deeper analysis begins.</p>
+              <div class="blog-more">
+                <p>The article shares practical cleaning patterns that save time later and make your dashboards and reports far more reliable.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="python">
+            <img src="assets/blog-saas-placeholder.svg" alt="NumPy basics placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Python</span>
+              <h3>NumPy Basics</h3>
+              <p>Get comfortable with arrays, vectorized operations, and the numerical foundations behind many data workflows.</p>
+              <div class="blog-more">
+                <p>This is especially useful for analysts who want to understand performance-friendly data handling beyond spreadsheet logic.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="sql">
+            <img src="assets/blog-portfolio-placeholder.svg" alt="SQL reporting patterns placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">SQL</span>
+              <h3>SQL Reporting Patterns for Analysts</h3>
+              <p>Use joins, CTEs, window functions, and aggregations to produce reliable recurring business reports.</p>
+              <div class="blog-more">
+                <p>It focuses on patterns analysts actually use in reporting pipelines, weekly summaries, and exploratory database work.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-blog-card data-blog-category="power-bi">
+            <img src="assets/blog-web-placeholder.svg" alt="Dashboard storytelling placeholder" class="blog-card-image">
+            <div class="blog-card-body">
+              <span class="blog-tag">Power BI</span>
+              <h3>Dashboard Storytelling for Stakeholders</h3>
+              <p>Turn charts into insight narratives that help teams spot issues, prioritize actions, and trust the numbers.</p>
+              <div class="blog-more">
+                <p>You’ll learn how hierarchy, annotations, and layout choices make even complex dashboards easier to use in meetings and reviews.</p>
+              </div>
+              <button class="card-link blog-read-btn" type="button" data-blog-expand>Read More</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state glass-card" hidden data-blog-empty>
+          <h3>No blogs matched your search.</h3>
+          <p>Try a different keyword or switch back to the All category.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Ayush Rajput</p>
+      <p>Data Analysis Learning Blog</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
