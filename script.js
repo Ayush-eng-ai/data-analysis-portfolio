@@ -1,15 +1,15 @@
 const emailJsConfig = {
   // Add your EmailJS Public Key from:
   // EmailJS Dashboard -> Account -> General
-  publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
+  publicKey: "fHzCcpUj6yXfeioB9",
 
   // Add your EmailJS Service ID from:
   // EmailJS Dashboard -> Email Services
-  serviceId: "YOUR_EMAILJS_SERVICE_ID",
+  serviceId: "service_k3prphr",
 
   // Add your EmailJS Template ID from:
   // EmailJS Dashboard -> Email Templates
-  templateId: "YOUR_EMAILJS_TEMPLATE_ID"
+  templateId: "template_g6p918l"
 };
 
 const THEME_STORAGE_KEY = "ayush-portfolio-theme";
