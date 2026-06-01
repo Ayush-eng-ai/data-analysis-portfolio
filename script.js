@@ -5,7 +5,7 @@ const emailJsConfig = {
 
   // Add your EmailJS Service ID from:
   // EmailJS Dashboard -> Email Services
-  serviceId: "service_k3prphr",
+  serviceId: "service_k3prphr-",
 
   // Add your EmailJS Template ID from:
   // EmailJS Dashboard -> Email Templates
