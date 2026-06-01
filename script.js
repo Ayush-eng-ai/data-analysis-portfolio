@@ -411,10 +411,14 @@ async function handleContactSubmit(event) {
 
     // This sends all form fields directly to the EmailJS template:
     // user_name, user_email, message, to_email
-    await window.emailjs.sendForm(
+    await window.emailjs.send(
       emailJsConfig.serviceId,
       emailJsConfig.templateId,
-      contactForm
+      {
+        user_name: contactForm.elements.user_name.value,
+        user_email: contactForm.elements.user_email.value,
+        message: contactForm.elements.message.value
+      }
     );
 
     contactForm.reset();
