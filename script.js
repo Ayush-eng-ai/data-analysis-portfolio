@@ -321,7 +321,7 @@ function applyBlogFilters() {
   blogCards.forEach((card) => {
     const category = card.dataset.blogCategory || "";
     const searchableText = card.textContent.toLowerCase();
-    const matchesCategory = activeFilter === "all" || category === activeFilter;
+    const matchesCategory = activeFilter === "all" ||category.split(" ").includes(activeFilter);
     const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
     const shouldShow = matchesCategory && matchesSearch;
 
@@ -344,8 +344,34 @@ function initializeBlogFilters() {
 
   blogFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      blogFilterButtons.forEach((currentButton) => currentButton.classList.remove("is-active"));
+
+      blogFilterButtons.forEach((currentButton) =>
+        currentButton.classList.remove("is-active")
+      );
+
       button.classList.add("is-active");
+
+      // Agar All select hua hai to dropdown text reset karo
+      if (button.dataset.blogFilter === "all") {
+
+        const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+
+        dropdownButtons[0].innerHTML = `
+          Tools
+          <i class="fa-solid fa-chevron-down"></i>
+        `;
+
+        dropdownButtons[1].innerHTML = `
+          Fields in Data
+          <i class="fa-solid fa-chevron-down"></i>
+        `;
+
+        // Dropdown ke selected options ki active class bhi hata do
+        document.querySelectorAll(".dropdown-menu button").forEach((btn) => {
+          btn.classList.remove("is-active");
+        });
+      }
+
       applyBlogFilters();
     });
   });
@@ -595,3 +621,71 @@ initializeBlogExpansion();
 initializeContactForm();
 initializeFeedbackForm();
 initializeWhatsAppPlanLinks();
+
+
+document.querySelectorAll(".custom-dropdown").forEach((dropdown) => {
+
+    const btn = dropdown.querySelector(".dropdown-btn");
+    const menu = dropdown.querySelector(".dropdown-menu");
+
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        document.querySelectorAll(".dropdown-menu").forEach((item) => {
+            if (item !== menu) {
+                item.classList.remove("show", "open-up");
+            }
+        });
+
+        menu.classList.toggle("show");
+
+        const rect = menu.getBoundingClientRect();
+
+        if (window.innerHeight - rect.top < 250) {
+            menu.classList.add("open-up");
+        } else {
+            menu.classList.remove("open-up");
+        }
+    });
+    dropdown.addEventListener("mouseleave", () => {
+    menu.classList.remove("show", "open-up");
+});
+
+});
+
+document.querySelectorAll(".dropdown-menu button").forEach((button) => {
+
+  button.addEventListener("click", () => {
+    const dropdown = button.closest(".custom-dropdown");
+    const dropdownBtn = dropdown.querySelector(".dropdown-btn");
+
+    // Arrow icon ko preserve karte hue text change karo
+      dropdownBtn.innerHTML = `
+      ${button.textContent}
+    <i class="fa-solid fa-chevron-down"></i>
+    `;
+
+    // Sab buttons ki active class hatao
+    document.querySelectorAll("[data-blog-filter]").forEach((btn) => {
+      btn.classList.remove("is-active");
+    });
+
+    // Current button active banao
+    button.classList.add("is-active");
+
+    // Dropdown close karo
+    document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+      menu.classList.remove("show");
+    });
+
+    // Filter apply karo
+    applyBlogFilters();
+
+  });
+
+});
+// Page ke bahar click karne par dropdown close
+document.addEventListener("click", () => {
+    document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+        menu.classList.remove("show", "open-up");
+    });
+});

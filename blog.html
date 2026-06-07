@@ -130,13 +130,41 @@
             >
           </label>
 
-          <div class="blog-filter-group" role="tablist" aria-label="Blog categories">
-            <button class="blog-filter-btn is-active" type="button" data-blog-filter="all">All</button>
-            <button class="blog-filter-btn" type="button" data-blog-filter="python">Python</button>
-            <button class="blog-filter-btn" type="button" data-blog-filter="sql">SQL</button>
-            <button class="blog-filter-btn" type="button" data-blog-filter="power-bi">Power BI</button>
-            <button class="blog-filter-btn" type="button" data-blog-filter="eda">EDA</button>
-          </div>
+          <div class="blog-filter-group">
+
+            <button class="blog-filter-btn is-active" data-blog-filter="all">
+              All
+            </button>
+
+            <!-- Tools Slicer -->
+            <div class="custom-dropdown">
+              <button class="dropdown-btn">
+                Tools
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <div class="dropdown-menu">
+                <button data-blog-filter="python">Python</button>
+                <button data-blog-filter="sql">SQL</button>
+                <button data-blog-filter="power-bi">Power BI</button>
+              </div>
+            </div>
+
+            <!-- Fields Slicer -->
+            <div class="custom-dropdown">
+              <button class="dropdown-btn">
+                Fields in Data
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+
+              <div class="dropdown-menu">
+               <button data-blog-filter="eda">EDA</button>
+                <button data-blog-filter="data-cleaning">Data Cleaning</button>
+                <button data-blog-filter="visualization">Visualization</button>
+                <button data-blog-filter="machine-learning">Machine Learning</button>
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
     </section>

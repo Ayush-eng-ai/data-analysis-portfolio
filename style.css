@@ -197,7 +197,7 @@ button {
 .site-header {
   position: sticky;
   top: 20px;
-  z-index: 40;
+  z-index: 1000;
   min-height: var(--header-height);
   display: flex;
   align-items: center;
@@ -1001,8 +1001,101 @@ button {
   box-shadow: 0 14px 32px rgba(78, 124, 255, 0.16);
 }
 
+.custom-dropdown {
+  position: relative;
+  
+}
+
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid var(--line);
+  background: var(--surface-muted);
+  color: var(--text);
+
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 800;
+
+  transition: 0.3s;
+}
+
+.dropdown-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    rgba(78,124,255,.18),
+    rgba(57,210,255,.14)
+  );
+
+  border-color: rgba(78,124,255,.38);
+  box-shadow: 0 14px 32px rgba(78,124,255,.16);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 94%;
+  left: 0;
+
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 200px;
+  padding: 1rem;
+
+  border-radius: 24px;
+  border: 1px solid var(--line);
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.03)
+    ),
+    var(--surface);
+
+  backdrop-filter: blur(20px);
+
+  z-index: 999;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu.open-up {
+  top: auto;
+  bottom: calc(100% + 12px);
+}
+
+
+
+.dropdown-menu button {
+  border: none;
+  background: rgba(78,124,255,.15);
+  color: white;
+
+  padding: .8rem 1rem;
+  border-radius: 999px;
+
+  font-weight: 700;
+  transition: .3s;
+}
+
+.dropdown-menu button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(78,124,255,.35),
+    rgba(57,210,255,.25)
+  );
+
+  transform: translateY(-2px);
+}
 .blog-card {
-  overflow: hidden;
+  overflow: visible;
   border-radius: var(--radius-xl);
   transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
 }
@@ -1255,6 +1348,7 @@ button {
   .testimonials-grid,
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
   }
 }
 
@@ -1307,8 +1401,11 @@ button {
   .blog-toolbar {
     flex-direction: column;
     align-items: stretch;
+    position: relative;
+    z-index: 1;
   }
-}
+  }
+
 
 @media (max-width: 640px) {
   .section {

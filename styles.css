@@ -1476,7 +1476,7 @@ body.modal-open {
 
 .blog-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 16%),
     rgba(8, 18, 34, 0.72);
