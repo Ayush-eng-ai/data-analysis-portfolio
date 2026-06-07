@@ -67,7 +67,7 @@ img {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  height : auto;
+  height: auto;
   margin: 0 auto;
   /* margin-left: ;
   margin-right: auto; */
@@ -629,17 +629,8 @@ button {
 .testimonials-grid {
   display: grid;
   gap: 1.4rem;
-}
-
-.skills-grid,
-.projects-grid,
-.services-grid,
-.blog-grid,
-.pricing-grid,
-.testimonials-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
 .skill-card,
 .service-card,
 .pricing-card,
@@ -1095,7 +1086,7 @@ button {
   transform: translateY(-2px);
 }
 .blog-card {
-  overflow: visible;
+  overflow: hidden;
   border-radius: var(--radius-xl);
   transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
 }
