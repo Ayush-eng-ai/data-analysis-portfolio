@@ -14,6 +14,7 @@ const emailJsConfig = {
 
 const THEME_STORAGE_KEY = "ayush-portfolio-theme";
 const FEEDBACK_STORAGE_KEY = "ayush-portfolio-feedback";
+const FEEDBACK_TIMER_KEY = "feedback-popup-start-time";
 const WHATSAPP_NUMBER = "918953866016";
 
 let emailJsInitialized = false;
@@ -689,3 +690,60 @@ document.addEventListener("click", () => {
         menu.classList.remove("show", "open-up");
     });
 });
+
+/* ================= FEEDBACK POPUP ================= */
+
+const feedbackPopup = document.getElementById("feedbackPopup");
+const closeFeedbackPopup = document.getElementById("closeFeedbackPopup");
+const feedbackBtn = document.getElementById("feedbackBtn");
+
+if (feedbackPopup) {
+
+  function showPopup() {
+
+    if (localStorage.getItem("feedbackDone") === "true") return;
+
+    const popupCount = Number(localStorage.getItem("feedbackPopupCount") || 0);
+
+    if (popupCount >= 3) return;
+
+    feedbackPopup.classList.add("show");
+  }
+
+  function hidePopup() {
+    feedbackPopup.classList.remove("show");
+  }
+
+  // First popup after 10 sec
+  setTimeout(showPopup, 10000);
+
+  // Maybe Later
+  closeFeedbackPopup?.addEventListener("click", () => {
+
+    hidePopup();
+
+    let popupCount = Number(localStorage.getItem("feedbackPopupCount") || 0);
+
+    popupCount++;
+
+    localStorage.setItem("feedbackPopupCount", popupCount);
+
+    if (popupCount < 3) {
+
+      setTimeout(showPopup, 10000);
+
+    }
+
+  });
+
+  // Give Feedback
+  feedbackBtn?.addEventListener("click", () => {
+
+    localStorage.setItem("feedbackDone", "true");
+
+    hidePopup();
+
+  });
+
+}
+
