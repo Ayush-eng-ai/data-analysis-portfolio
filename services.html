@@ -365,16 +365,32 @@
         </div>
 
         <form class="contact-form feedback-form reveal" id="feedback-form" novalidate>
+  
           <div class="form-field">
             <label for="feedback-name">Name</label>
-            <input
-              type="text"
-              id="feedback-name"
-              name="feedback_name"
-              placeholder="Your name"
-              data-field="name"
-              required
-            >
+            <input type="text" id="feedback-name" name="feedback_name" 
+            placeholder="Your name" data-field="name" required>
+            <small class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="feedback-designation">Designation & City</label>
+            <input type="text" id="feedback-designation" name="feedback_designation" 
+            placeholder="e.g. Marketing Manager · Delhi" data-field="designation" required>
+            <small class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="feedback-project">Project Type</label>
+            <select id="feedback-project" name="feedback_project" data-field="project" required>
+              <option value="">Select project type</option>
+              <option value="Power BI Dashboard">Power BI Dashboard</option>
+              <option value="Excel + Data Cleaning">Excel + Data Cleaning</option>
+              <option value="SQL Data Analysis">SQL Data Analysis</option>
+              <option value="Python EDA">Python EDA</option>
+              <option value="Attendance Analytics">Attendance Analytics</option>
+              <option value="Business Insights">Business Insights</option>
+            </select>
             <small class="field-error" aria-live="polite"></small>
           </div>
 
@@ -382,23 +398,18 @@
             <label for="feedback-rating">Rating</label>
             <select id="feedback-rating" name="feedback_rating" data-field="rating" required>
               <option value="">Select rating</option>
-              <option value="5">5 Stars</option>
-              <option value="4">4 Stars</option>
-              <option value="3">3 Stars</option>
+              <option value="5">★★★★★ — 5 Stars</option>
+              <option value="4">★★★★☆ — 4 Stars</option>
+              <option value="3">★★★☆☆ — 3 Stars</option>
             </select>
             <small class="field-error" aria-live="polite"></small>
           </div>
 
           <div class="form-field">
-            <label for="feedback-message">Feedback</label>
-            <textarea
-              id="feedback-message"
-              name="feedback_message"
-              rows="5"
-              placeholder="Share a short experience or project outcome"
-              data-field="feedback"
-              required
-            ></textarea>
+            <label for="feedback-message">Your Experience</label>
+            <textarea id="feedback-message" name="feedback_message" rows="4"
+            placeholder="Share your project experience..." 
+            data-field="feedback" required></textarea>
             <small class="field-error" aria-live="polite"></small>
           </div>
 
@@ -406,6 +417,7 @@
             <p class="form-status" id="feedback-status" role="status" aria-live="polite"></p>
             <button class="primary-btn" type="submit">Submit Feedback</button>
           </div>
+
         </form>
       </div>
     </section>
