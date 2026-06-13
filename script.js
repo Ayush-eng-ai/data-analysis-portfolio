@@ -655,8 +655,15 @@ function initializeTestimonialsCarousel() {
   }
 
   // Pause on hover
-  wrap.addEventListener("mouseenter", stopAutoScroll);
-  wrap.addEventListener("mouseleave", startAutoScroll);
+  // Pause on hover — wrap aur har card pe
+wrap.addEventListener("mouseenter", stopAutoScroll);
+wrap.addEventListener("mouseleave", startAutoScroll);
+
+// Har testimonial card pe bhi
+grid.querySelectorAll(".testimonial-card").forEach(card => {
+  card.addEventListener("mouseenter", stopAutoScroll);
+  card.addEventListener("mouseleave", startAutoScroll);
+});
 
   // Arrow Left
   if (btnLeft) {
