@@ -490,28 +490,38 @@ function getStarRating(rating) {
 }
 
 function createFeedbackCard(entry) {
+  const gradients = [
+    "linear-gradient(135deg,#4e7cff,#9b5cff)",
+    "linear-gradient(135deg,#39d2ff,#4e7cff)",
+    "linear-gradient(135deg,#2dc989,#39d2ff)",
+    "linear-gradient(135deg,#ff6b6b,#ff9b5c)",
+    "linear-gradient(135deg,#9b5cff,#ff6b6b)"
+  ];
+  const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+  const initial = entry.name.charAt(0).toUpperCase();
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+
   const card = document.createElement("article");
   card.className = "testimonial-card";
 
-  const chip = document.createElement("span");
-  chip.className = "feedback-chip";
-  chip.textContent = "New Feedback";
+  card.innerHTML = `
+    <div class="testimonial-head">
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:46px; height:46px; border-radius:50%; background:${randomGradient}; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:1.1rem; flex-shrink:0;">${initial}</div>
+        <div>
+          <strong style="display:block;">${entry.name}</strong>
+          <small style="color:var(--text-soft);">${entry.designation || "Client"}</small>
+        </div>
+      </div>
+      <span class="testimonial-rating">${getStarRating(entry.rating)}</span>
+    </div>
+    ${entry.project ? `<span style="display:inline-flex; margin:0.8rem 0; padding:0.3rem 0.8rem; background:rgba(78,124,255,0.1); border:1px solid rgba(78,124,255,0.2); border-radius:999px; font-size:0.75rem; font-weight:800; color:var(--accent);">${entry.project}</span>` : ""}
+    <p>"${entry.message}"</p>
+    <small style="color:var(--text-soft); font-size:0.78rem;">${dateStr}</small>
+    <span class="feedback-chip" style="display:inline-flex; margin-top:0.5rem;">New Feedback</span>
+  `;
 
-  const head = document.createElement("div");
-  head.className = "testimonial-head";
-
-  const name = document.createElement("strong");
-  name.textContent = entry.name;
-
-  const rating = document.createElement("span");
-  rating.className = "testimonial-rating";
-  rating.textContent = getStarRating(entry.rating);
-
-  const message = document.createElement("p");
-  message.textContent = entry.message;
-
-  head.append(name, rating);
-  card.append(chip, head, message);
   return card;
 }
 
@@ -582,9 +592,11 @@ function initializeFeedbackForm() {
 
     const entry = {
       name: feedbackForm.elements.feedback_name.value.trim(),
+      designation: feedbackForm.elements.feedback_designation.value.trim(),
+      project: feedbackForm.elements.feedback_project.value.trim(),
       rating: feedbackForm.elements.feedback_rating.value.trim(),
       message: feedbackForm.elements.feedback_message.value.trim()
-    };
+};
 
     const savedEntries = readStoredFeedback();
     const updatedEntries = [entry, ...savedEntries].slice(0, 6);
@@ -612,6 +624,97 @@ function initializeWhatsAppPlanLinks() {
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
 }
+
+// ─── TESTIMONIALS CAROUSEL ───────────────────────────
+function initializeTestimonialsCarousel() {
+  const wrap = document.getElementById("carousel-wrap");
+  const grid = document.getElementById("feedback-list");
+  const btnLeft = document.getElementById("arrow-left");
+  const btnRight = document.getElementById("arrow-right");
+
+  if (!wrap || !grid) return;
+
+  let scrollAmount = 0;
+  let autoScroll;
+  const cardWidth = 336; // 320px + 16px gap
+
+  function startAutoScroll() {
+    autoScroll = setInterval(() => {
+      const maxScroll = grid.scrollWidth - wrap.offsetWidth;
+      if (scrollAmount >= maxScroll) {
+        scrollAmount = 0;
+      } else {
+        scrollAmount += cardWidth;
+      }
+      grid.style.transform = `translateX(-${scrollAmount}px)`;
+    }, 3000);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScroll);
+  }
+
+  // Pause on hover
+  wrap.addEventListener("mouseenter", stopAutoScroll);
+  wrap.addEventListener("mouseleave", startAutoScroll);
+
+  // Arrow Left
+  if (btnLeft) {
+    btnLeft.addEventListener("click", () => {
+      stopAutoScroll();
+      scrollAmount = Math.max(0, scrollAmount - cardWidth);
+      grid.style.transform = `translateX(-${scrollAmount}px)`;
+      startAutoScroll();
+    });
+  }
+
+  // Arrow Right
+  if (btnRight) {
+    btnRight.addEventListener("click", () => {
+      stopAutoScroll();
+      const maxScroll = grid.scrollWidth - wrap.offsetWidth;
+      scrollAmount = Math.min(maxScroll, scrollAmount + cardWidth);
+      grid.style.transform = `translateX(-${scrollAmount}px)`;
+      startAutoScroll();
+    });
+  }
+
+  startAutoScroll();
+
+  // ─── READ MORE LOGIC ──────────────────────────────
+  function applyReadMore() {
+    grid.querySelectorAll(".testimonial-card").forEach(card => {
+      const p = card.querySelector("p");
+      if (!p) return;
+
+      const body = document.createElement("div");
+      body.className = "testimonial-body";
+      p.parentNode.insertBefore(body, p);
+      body.appendChild(p);
+
+      // Check if text is long
+      const lineHeight = parseInt(getComputedStyle(p).lineHeight);
+      const maxHeight = lineHeight * 3;
+
+      if (p.scrollHeight > maxHeight + 5) {
+        const btn = document.createElement("button");
+        btn.className = "testimonial-read-more visible";
+        btn.textContent = "Read More";
+        body.appendChild(btn);
+
+        btn.addEventListener("click", () => {
+          const isExpanded = body.classList.toggle("is-expanded");
+          btn.textContent = isExpanded ? "Read Less" : "Read More";
+        });
+      }
+    });
+  }
+
+  // Apply after slight delay to ensure cards rendered
+  setTimeout(applyReadMore, 300);
+}
+
+initializeTestimonialsCarousel();
 
 initializeThemeToggle();
 initializeMobileNav();

@@ -1577,3 +1577,117 @@ button {
 .footer-feedback-btn:hover {
   transform: translateY(-2px);
 }
+
+
+/* Select Dropdown Fix */
+.form-field select {
+  background: var(--bg-soft, #0b1628) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--accent) !important;
+  cursor: pointer;
+}
+
+.form-field select option {
+  background: #0b1628 !important;
+  color: #eef4ff !important;
+  padding: 0.5rem;
+}
+
+/* Testimonials Carousel */
+.testimonials-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonials-grid {
+  display: flex !important;
+  gap: 1.4rem;
+  transition: transform 0.5s ease;
+  cursor: grab;
+  will-change: transform;
+}
+
+.testimonials-grid:active {
+  cursor: grabbing;
+}
+
+.testimonials-grid .testimonial-card {
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 1rem;
+}
+
+.testimonials-carousel-wrap:hover .carousel-arrow {
+  opacity: 1;
+}
+
+.carousel-arrow:hover {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+
+.carousel-arrow-left {
+  left: 0.5rem;
+}
+
+.carousel-arrow-right {
+  right: 0.5rem;
+}
+
+/* Testimonial Read More */
+.testimonial-body {
+  position: relative;
+}
+
+.testimonial-body p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.testimonial-body.is-expanded p {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.testimonial-read-more {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  margin-top: 0.3rem;
+}
+
+.testimonial-read-more.visible {
+  display: inline-block;
+}
