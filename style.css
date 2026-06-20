@@ -1666,6 +1666,7 @@ button {
 .testimonial-body p {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -1673,6 +1674,7 @@ button {
 
 .testimonial-body.is-expanded p {
   -webkit-line-clamp: unset;
+  line-clamp: unset;
   overflow: visible;
 }
 
@@ -1710,14 +1712,14 @@ button {
 }
 /* View Code */
 .project-buttons .card-link:nth-child(1){
-  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+  background: linear-gradient(135deg,#2563eb,#6e7b9d);
   border: 1px solid #3b82f6;
 }
 
 /* Live Demo */
 .project-buttons .card-link:nth-child(2){
   background: linear-gradient(135deg,#0891b2,#06b6d4);
-  border: 1px solid #22d3ee;
+  border: 1px solid #527250;
 }
 
 /* Read Case Study */
@@ -1728,4 +1730,37 @@ button {
 .project-buttons .card-link:last-child{
   width:100%;
   margin-top:15px;
+}
+
+.card-link{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  color:#fff;
+
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+  );
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  transition:all 0.3s ease;
+}
+
+.card-link:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(37,99,235,.35);
+
+  background:linear-gradient(
+    135deg,
+    #1d4ed8,
+    #0891b2
+  );
 }
