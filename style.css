@@ -1691,3 +1691,41 @@ button {
 .testimonial-read-more.visible {
   display: inline-block;
 }
+
+.project-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:15px;
+}
+
+.project-buttons .card-link{
+  text-align:center;
+}
+
+/* Third button ko next line me bhejne ke liye */
+.project-buttons .card-link:last-child{
+  width:100%;
+  margin-top:8px;
+}
+/* View Code */
+.project-buttons .card-link:nth-child(1){
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+  border: 1px solid #3b82f6;
+}
+
+/* Live Demo */
+.project-buttons .card-link:nth-child(2){
+  background: linear-gradient(135deg,#0891b2,#06b6d4);
+  border: 1px solid #22d3ee;
+}
+
+/* Read Case Study */
+.project-buttons .card-link:nth-child(3){
+  background: linear-gradient(135deg,#7c3aed,#9333ea);
+  border: 1px solid #a855f7;
+}
+.project-buttons .card-link:last-child{
+  width:100%;
+  margin-top:15px;
+}
