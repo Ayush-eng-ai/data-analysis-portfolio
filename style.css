@@ -1936,16 +1936,65 @@ button {
   }
 }
 
-.nav-cta{
-  padding:0.75rem 1rem;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-alt));
-  color:#fff !important;
-  border:1px solid rgba(255,255,255,0.15);
-}
+
 
 .nav-cta::after{
   display:none;
+}
+
+.footer-wrap{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:2rem;
+  align-items:start;
+}
+
+.footer-wrap h3{
+  margin:0 0 .5rem;
+  font-family:"Space Grotesk", sans-serif;
+}
+
+.footer-wrap p{
+  color:var(--text-soft);
+  margin:0;
+}
+
+.footer-links,
+.footer-socials{
+  display:grid;
+  gap:.6rem;
+}
+
+.footer-links a,
+.footer-socials a{
+  color:var(--text-soft);
+  transition:.3s;
+}
+
+.footer-links a:hover,
+.footer-socials a:hover{
+  color:var(--accent-soft);
+  transform:translateX(4px);
+}
+
+.footer-bottom{
+  text-align:center;
+  color:var(--text-soft);
+  margin-top:2rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:768px){
+  .footer-wrap{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .footer-links,
+  .footer-socials{
+    justify-items:center;
+  }
 }
 
 .footer-wrap{
