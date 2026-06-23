@@ -2051,3 +2051,30 @@ button {
     justify-items:center;
   }
 }
+
+.hero-feature-badge{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  flex-wrap:wrap;
+  margin-top:1.4rem;
+  padding:.9rem 1.1rem;
+  border-radius:18px;
+  background:linear-gradient(135deg, rgba(78,124,255,.16), rgba(57,210,255,.10));
+  border:1px solid rgba(78,124,255,.25);
+  color:var(--text);
+}
+
+.hero-feature-badge span{
+  color:var(--accent-soft);
+  font-weight:900;
+}
+
+.hero-feature-badge strong{
+  font-weight:900;
+}
+
+.hero-feature-badge small{
+  color:var(--text-soft);
+  font-weight:700;
+}
