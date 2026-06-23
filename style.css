@@ -1840,3 +1840,18 @@ button {
     align-items:flex-start;
   }
 }
+
+.skill-category{
+  margin-top:2.2rem;
+}
+
+.skill-category > h3{
+  font-family:"Space Grotesk", sans-serif;
+  font-size:1.55rem;
+  margin:0 0 1.2rem;
+  color:var(--text);
+}
+
+.skill-category .skills-grid{
+  margin-bottom:1.5rem;
+}
