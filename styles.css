@@ -1563,6 +1563,7 @@ body.modal-open {
   margin: 0 0 1.3rem;
   color: rgba(237, 244, 255, 0.68);
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
