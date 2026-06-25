@@ -1620,3 +1620,44 @@ body.modal-open {
     justify-content: center;
   }
 }
+
+
+.availability-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:rgba(45,201,137,0.15);
+  border:1px solid rgba(45,201,137,0.3);
+  color:#2dc989;
+  padding:0.4rem 1rem;
+  border-radius:999px;
+  font-size:0.82rem;
+  font-weight:800;
+  margin-bottom:0.5rem;
+}
+
+.availability-badge span{
+  width:8px;
+  height:8px;
+  background:#2dc989;
+  border-radius:50%;
+}
+
+.hero-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  max-width:780px;
+  margin:2.4rem auto 0;
+}
+
+.hero-metrics .metric-card{
+  text-align:center;
+}
+
+@media(max-width:768px){
+  .hero-metrics{
+    grid-template-columns:1fr;
+    max-width:100%;
+  }
+}
