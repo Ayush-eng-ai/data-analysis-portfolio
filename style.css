@@ -2078,3 +2078,54 @@ button {
   color:var(--text-soft);
   font-weight:700;
 }
+
+
+.timeline-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;
+}
+
+.timeline-card{
+  position:relative;
+  padding:1.3rem;
+  border-radius:22px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+}
+
+.timeline-card span{
+  display:inline-flex;
+  margin-bottom:.8rem;
+  padding:.35rem .75rem;
+  border-radius:999px;
+  background:rgba(78,124,255,.14);
+  color:var(--accent-soft);
+  font-size:.78rem;
+  font-weight:900;
+}
+
+.timeline-card h3{
+  margin:0 0 .6rem;
+  font-family:"Space Grotesk", sans-serif;
+  font-size:1.05rem;
+}
+
+.timeline-card p{
+  margin:0;
+  color:var(--text-soft);
+  font-size:.9rem;
+}
+
+@media(max-width:1080px){
+  .timeline-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:640px){
+  .timeline-grid{
+    grid-template-columns:1fr;
+  }
+}
